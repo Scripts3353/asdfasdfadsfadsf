@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Game Vault</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0f1a;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        /* The iframe takes the full screen, no borders, no extra UI */
+        .game-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        /* Fallback message in case iframe fails (rare, but clean) */
+        .fallback {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        This iframe loads your Cloudflare Tunnel URL directly.
+        The remote server (important-nickel-code-yearly.trycloudflare.com)
+        hosts your game cards, images, and download logic.
+    -->
+    <iframe 
+        class="game-frame" 
+        src="https://important-nickel-code-yearly.trycloudflare.com"
+        title="Game Downloads"
+        sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-downloads allow-modals"
+        loading="eager">
+        <!-- Fallback text, only shown if iframes are not supported -->
+        <div class="fallback">
+            <p>Your browser does not support embedded content.</p>
+            <p>Visit directly: <a href="https://important-nickel-code-yearly.trycloudflare.com">important-nickel-code-yearly.trycloudflare.com</a></p>
+        </div>
+    </iframe>
+</body>
+</html>
